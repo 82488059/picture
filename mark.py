@@ -18,11 +18,11 @@ def mark_dir2(root, out):
     for fname in files:
         fpath = root + "\\" + fname
         if os.path.isfile(fpath):   # not a dir
-            file_name, file_extension = os.path.splitext(fpath)
-            if ".gif" != file_extension:
-                mark(fpath, out)
-            else:
+            file_name, file_extension = os.path.splitext(fname)
+            if ".gif" == file_extension:
                 shutil.copy(fpath, out + "\\" + fname)
+            else:
+                mark(fpath, out)
         elif os.path.isdir(fpath):  # is a dir
             subdir = root + "\\" + fname
             subout =  out + "\\" + fname
@@ -33,7 +33,7 @@ def mark_dir2(root, out):
             elif "cover" == fname:
                 shutil.rmtree(subout)
                 shutil.copytree(subdir, subout, copy_function = shutil.copy)
-            elif "nomark.png" == fname:
+            elif "nomark" == fname:
                 shutil.rmtree(subout)
                 shutil.copytree(subdir, subout, copy_function = shutil.copy)
             else:
