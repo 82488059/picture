@@ -33,6 +33,9 @@ def mark_dir2(root, out):
             elif "cover" == fname:
                 shutil.rmtree(subout)
                 shutil.copytree(subdir, subout, copy_function = shutil.copy)
+            elif "nomark.png" == fname:
+                shutil.rmtree(subout)
+                shutil.copytree(subdir, subout, copy_function = shutil.copy)
             else:
                 mark_dir2(subdir, subout)
         else :
