@@ -6,7 +6,7 @@ import shutil
 def mark(file, outdir, mark = "火苗999℃"):
     add_mark(file = file, out = outdir, mark = mark
             #, color = "#000000"
-            , opacity=0.1, angle=30, space=300, size=20)
+            , opacity=0.15, angle=30, space=200, size=20)
     return 
 
 
